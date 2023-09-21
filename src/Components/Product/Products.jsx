@@ -1,7 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Products = ({ product }) => {
-  const { category, description, id, image, price, title } = product;
+  const { description, id, image, title } = product;
+ const navigate = useNavigate()
+
+  const handleShowDetail =()=>{
+navigate(`/products/${id}`)
+  }
 
   return (
     <>
@@ -13,10 +19,10 @@ const Products = ({ product }) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <h2 className="card-title">{title}</h2>
+          <p>{description}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+            <button onClick={handleShowDetail} className="btn btn-primary">Show Details</button>
           </div>
         </div>
       </div>

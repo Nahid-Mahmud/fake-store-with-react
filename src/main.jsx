@@ -5,6 +5,7 @@ import "./index.css";
 import Home from "./Components/Home/Home";
 import LoadProducts from "./Components/Product/LoadProducts";
 import LandingPage from "./Components/Landingpage/LandingPage";
+import Product from "./Components/Product/Product";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
         path: "/products",
         element: <LoadProducts></LoadProducts>,
         loader: () => fetch("https://fakestoreapi.com/products"),
+      },
+      {
+        path: "/products/:id",
+        element: <Product></Product>,
+        loader: ({params}) => fetch(`https://fakestoreapi.com/products/${params.id}`)
       },
     ],
   },

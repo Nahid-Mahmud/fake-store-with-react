@@ -10,9 +10,7 @@ const Home = () => {
   return (
     <>
       <Header></Header>
-     {
-        navigation.state ==="loading" ? <Loader></Loader> :  <Outlet></Outlet>
-     }
+      {navigation.state === "loading" ? <Loader></Loader> : <Outlet></Outlet>}
       <Footer></Footer>
     </>
   );

@@ -12,7 +12,7 @@ const Product = () => {
   };
 
   return (
-    <div className="card card-compact  bg-base-100 shadow-xl mx-auto my-10">
+    <div className="card card-compact md:w-96 bg-base-100 shadow-xl mx-auto my-10">
       <figure>
         <img className="p-5" src={image} alt="Shoes" />
       </figure>

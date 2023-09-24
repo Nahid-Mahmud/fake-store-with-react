@@ -4,9 +4,12 @@ import { getStoredProducts } from "../../utility/localstorage";
 import ShowFavouratesProduct from "./ShowFavouratesProduct";
 
 const Favourites = () => {
+
   const [favouritesProducts, setFavouritesProducts] = useState([]);
   const [displayProduct, SetDisplayProduct] = useState([]);
   const productData = useLoaderData();
+
+
 
   useEffect(() => {
     const storedProductId = getStoredProducts();
@@ -18,6 +21,11 @@ const Favourites = () => {
       SetDisplayProduct(favoritesProducts);
     }
   }, [productData]);
+
+  const hancleClearAll = () => {
+    localStorage.clear();
+    SetDisplayProduct([])
+  };
 
   const handleClickCatagories = (catagories) => {
     if (catagories === "all") {
@@ -90,6 +98,11 @@ const Favourites = () => {
         {displayProduct.map((e) => (
           <ShowFavouratesProduct key={e.id} product={e} />
         ))}
+      </div>
+      <div className="text-center my-10">
+        <button onClick={hancleClearAll} className="btn btn-warning">
+          Clear All
+        </button>
       </div>
     </>
   );

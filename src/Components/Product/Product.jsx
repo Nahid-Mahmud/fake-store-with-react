@@ -1,5 +1,5 @@
 
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { saveProducts } from "../../utility/localstorage";
@@ -8,12 +8,14 @@ const Product = () => {
   const data = useLoaderData();
   const { id, category, description, image, title, price, rating } = data;
   const { rate, count } = rating;
-
+  const navigate = useNavigate()
   const handleFavouriteBtnClick = () => {
     saveProducts(id);
     toast("Product Added to favoroute");
   };
-
+const handleGoBack = ()=>{
+  navigate(-1)
+}
   return (
     <>
       <div className="card card-compact md:w-96 bg-base-100 shadow-xl mx-auto my-10">
@@ -31,7 +33,8 @@ const Product = () => {
           <p className="text-xl">
             Rating : {rate}, Rating Count : {count}
           </p>
-          <div className="card-actions justify-end">
+          <div className="card-actions justify-between">
+          <button  className="btn btn-primary" onClick={handleGoBack}>Go Back</button>
             <button
               onClick={() => handleFavouriteBtnClick()}
               className="btn btn-primary"

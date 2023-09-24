@@ -4,12 +4,9 @@ import { getStoredProducts } from "../../utility/localstorage";
 import ShowFavouratesProduct from "./ShowFavouratesProduct";
 
 const Favourites = () => {
-
   const [favouritesProducts, setFavouritesProducts] = useState([]);
   const [displayProduct, SetDisplayProduct] = useState([]);
   const productData = useLoaderData();
-
-
 
   useEffect(() => {
     const storedProductId = getStoredProducts();
@@ -24,7 +21,7 @@ const Favourites = () => {
 
   const hancleClearAll = () => {
     localStorage.clear();
-    SetDisplayProduct([])
+    SetDisplayProduct([]);
   };
 
   const handleClickCatagories = (catagories) => {
@@ -61,37 +58,35 @@ const Favourites = () => {
           }}
           className="menu-item"
         >
-          {" "}
-          All{" "}
+          <button> All</button>
         </li>
         <li
           onClick={() => {
             handleClickCatagories("electronics");
           }}
         >
-          {" "}
-          Electronics{" "}
+          <button> Electronics</button>
         </li>
         <li
           onClick={() => {
             handleClickCatagories("jewelery");
           }}
         >
-          Jewelery
+          <button> Jewelery</button>
         </li>
         <li
           onClick={() => {
             handleClickCatagories("women's clothing");
           }}
         >
-          Women's Clothing
+          <button> Women's Clothing</button>
         </li>
         <li
           onClick={() => {
             handleClickCatagories("men's clothing");
           }}
         >
-          Men's Clothing
+          <button> Men's Clothing</button>
         </li>
       </ul>
       <div className="grid grid-cols-4 gap-10 max-w-[90vw] mx-auto">

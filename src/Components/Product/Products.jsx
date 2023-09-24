@@ -1,8 +1,8 @@
-import React from "react";
+
 import { useNavigate } from "react-router-dom";
 
 const Products = ({ product }) => {
-  const { description, id, image, title } = product;
+  const { description, id, image, title ,category} = product;
  const navigate = useNavigate()
 
   const handleShowDetail =()=>{
@@ -20,6 +20,7 @@ navigate(`/products/${id}`)
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
+          <p className='capitalize text-xl font-medium'>{category}</p>
           <p>{description}</p>
           <div className="card-actions justify-end">
             <button onClick={handleShowDetail} className="btn btn-primary">Show Details</button>

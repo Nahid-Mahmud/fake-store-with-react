@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { saveProducts } from "../../utility/localstorage";
+import { Helmet } from "react-helmet-async";
 
 const Product = () => {
   const data = useLoaderData();
@@ -17,7 +18,9 @@ const handleGoBack = ()=>{
   navigate(-1)
 }
   return (
-    <>
+    <><Helmet>
+      <title> Fake-Store - {title} </title>
+    </Helmet>
       <div className="card card-compact md:w-96 bg-base-100 shadow-xl mx-auto my-10">
         <figure>
           <img className="p-5" src={image} alt="Shoes" />

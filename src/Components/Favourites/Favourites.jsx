@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getStoredProducts } from "../../utility/localstorage";
 import ShowFavouratesProduct from "./ShowFavouratesProduct";
+import { Helmet } from "react-helmet-async";
 
 const Favourites = () => {
   const [favouritesProducts, setFavouritesProducts] = useState([]);
@@ -51,6 +52,9 @@ const Favourites = () => {
   };
   return (
     <>
+    <Helmet>
+      <title>Fake Store - Favourites</title>
+    </Helmet>
       <ul className="menu menu-horizontal mx-auto justify-center flex max-w-fit mb-10 gap-5 bg-base-200 rounded-box">
         <li
           onClick={() => {
